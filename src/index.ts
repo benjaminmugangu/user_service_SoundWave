@@ -27,7 +27,7 @@ app.use(express.json()); // ici on utilise le middleware express.json() pour par
 app.use("/api/v1", userRoutes);// ici on utilise les routes définies dans le fichier route.js, toutes les routes commenceront par /api/v1
 
 app.get("/", (req, res) => { // ici on définit une route GET pour la racine de l'application
-  res.send("Server is working");// ici on envoie une réponse au client
+  res.send("Server is workinggggggggggg");// ici on envoie une réponse au client
 });
 
 const port = process.env.PORT || 5000; // ici on définit le port sur lequel le serveur va écouter, si le port n'est pas défini dans les variables d'environnement, on utilise le port 5000
