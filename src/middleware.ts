@@ -12,7 +12,16 @@ export const isAuth = async (
   next: NextFunction
 ): Promise<void> => {
   try {
-    const token = req.headers.token as string;
+    const authHeader = req.headers.authorization;
+
+    if (!authHeader || !authHeader.startsWith("Bearer ")) {
+      res.status(403).json({
+        message: "Authorization header manquant ou invalide",
+      });
+      return;
+    }
+
+    const token = authHeader.split(" ")[1];
 
     if (!token) {
       res.status(403).json({
